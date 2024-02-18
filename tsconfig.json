@@ -1,0 +1,37 @@
+{
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"noEmit": true,
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next",
+			},
+		],
+		"paths": {
+			"@/*": ["./src/*"],
+		},
+		"target": "esnext",
+		"module": "commonjs",
+		"jsx": "preserve",
+		"strict": true,
+		"esModuleInterop": true,
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"test/**/*.ts",
+		"test/**/*.tsx",
+		"src/utils/fibonacci.test.js",
+	],
+	"exclude": ["node_modules"],
+}
