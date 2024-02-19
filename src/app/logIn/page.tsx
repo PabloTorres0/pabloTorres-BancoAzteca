@@ -1,7 +1,7 @@
 'use client'
-import React, { useEffect } from 'react'
 import LogIn from '../../components/LogIn'
 import CustomForm from '@/components/CustomForm'
+import React from 'react'
 
 
 const Problema : React.FC = () => {

@@ -30,58 +30,58 @@ const CustomForm : React.FC = props => {
         setShowForm(false)
       }
       setLoading(false)
-
     },1000)
   }
 
-const changeValue = (e:any, index:number) : void => {
+  const changeValue = (e:any, index:number) : void => {
 
-  switch (index){
-    case 0:
-      setData([e, data[1], data[2]])
-    break
-    case 1:
-      setData([data[0], e, data[2]])
-    break
-    case 2:
-      setData([data[0], data[1], e])
-    break
-    case 3:
-      setId(e)
-    break
-  }  
-}
+    switch (index){
+      case 0:
+        setData([e, data[1], data[2]])
+      break
+      case 1:
+        setData([data[0], e, data[2]])
+      break
+      case 2:
+        setData([data[0], data[1], e])
+      break
+      case 3:
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        setId(e)
+      break
+    }  
+  }
 
-const update = () : void => {
-  setSpinnerUpdate(true)
-  setTimeout(()=>{
-  alert('Actualización exitosa')
-  setSpinnerUpdate(false)
-  },1000)
+  const update = () : void => {
+    setSpinnerUpdate(true)
+    setTimeout(()=>{
+    alert('Actualización exitosa')
+    setSpinnerUpdate(false)
+    },1000)
   }
 
   return (
   <section>
     <form onSubmit={(e)=>{
-      getData()
-      e.preventDefault()
-    }}>
-      <label>ID </label>
+        getData()
+        e.preventDefault()
+      }}>
+      <label>INGRESA ID </label>
       <div className="input-group mb-3">
         <input type="text" 
-        className="form-control" 
-        placeholder="Ingresa ID Válido"
-        value={id}
-        onChange={(e)=>changeValue(e.target.value,3)} 
-        />
+          className="form-control" 
+          placeholder="Ingresa ID Válido"
+          value={id}
+          onChange={(e)=>{ changeValue(e.target.value,3); }} 
+          />
         <div className="input-group-append input-group-lg">
           <button 
-          className="btn btn-outline-danger" 
-          type="submit"
-          >
-          {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>:null}
-          <span className="sr-only">{loading ? '   Cargando' : 'Buscar Datos' }</span>
-        </button>
+            className="btn btn-outline-danger" 
+            type="submit"
+            >
+              {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>:null}
+              <span className="sr-only">{loading ? '   Cargando' : 'Buscar Datos' }</span>
+          </button>
         </div>
       </div>
 
@@ -105,12 +105,14 @@ const update = () : void => {
           ))):null
     }    
   </form>
-  { showForm ? <button 
-  className='btn btn-outline-danger btn-block col-12 mt-4 btn-lg'
-  onClick={update}
-  >
-  {spinnerUpdate ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>:null}
-          <span className="sr-only">{spinnerUpdate ? '   Actualizando' : 'Actualizar Datos' }</span>
+  { showForm ? 
+  <button 
+    className='btn btn-outline-danger btn-block col-12 mt-4 btn-lg'
+    onClick={update}
+    >
+    {spinnerUpdate ? 
+      <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>:null}
+      <span className="sr-only">{spinnerUpdate ? '   Actualizando' : 'Actualizar Datos' }</span>
   </button>:null}  
 </section>
   )
